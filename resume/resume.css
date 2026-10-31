@@ -1,0 +1,991 @@
+
+/* =========================================
+   RESUME PAGE
+   Madisyn Fantauzzi
+========================================= */
+
+:root {
+    --cream: #fffaf0;
+    --white: #ffffff;
+    --sage: #e7ede3;
+    --sage-dark: #526b50;
+    --yellow: #ffd978;
+    --yellow-dark: #d59d00;
+    --ink: #242424;
+    --muted: #686868;
+    --line: #e5e0d6;
+
+    --sans: "DM Sans", sans-serif;
+    --serif: "Playfair Display", Georgia, serif;
+
+    --content: 1050px;
+}
+
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1, h2, h3 {
+    line-height: 1.15;
+    letter-spacing: -.03em;
+}
+
+main {
+    overflow: hidden;
+}
+
+.eyebrow,
+.section-label,
+.experience-date,
+.timeline-date,
+.volunteer-date {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: .9rem max(1.5rem, calc((100vw - var(--content)) / 2));
+
+    border-bottom: 1px solid rgba(36, 36, 36, .08);
+
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -.08em;
+}
+
+.logo span {
+    color: var(--yellow-dark);
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.site-header nav a {
+    font-size: .85rem;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+    color: var(--sage-dark);
+}
+
+
+/* =========================================
+   RESUME HERO
+========================================= */
+
+.resume-hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 3rem;
+
+    width: min(var(--content), calc(100% - 3rem));
+    min-height: 450px;
+    margin: auto;
+    padding-block: 4rem;
+}
+
+.hero-content .eyebrow {
+    color: var(--sage-dark);
+    margin-bottom: 1.2rem;
+}
+
+.resume-hero h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 500;
+}
+
+.resume-hero h1 span {
+    color: var(--sage-dark);
+    font-family: var(--serif);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 500px;
+    margin-bottom: 2rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-info a {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: .85rem;
+}
+
+.contact-info a:hover {
+    color: var(--sage-dark);
+}
+
+.contact-info span {
+    color: var(--sage-dark);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+}
+
+.print-button {
+    display: inline-flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    padding: .85rem 1.3rem;
+
+    border: none;
+    background: var(--sage-dark);
+    color: white;
+
+    font-family: var(--sans);
+    font-size: .85rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.print-button:hover {
+    background: #40563f;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HERO DECORATION
+========================================= */
+
+.hero-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 300px;
+    background: var(--cream);
+}
+
+.decoration-circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 210px;
+    height: 210px;
+
+    border: 1px solid var(--sage-dark);
+    border-radius: 50%;
+    outline: 12px solid rgba(231, 237, 227, .8);
+
+    color: var(--sage-dark);
+}
+
+.decoration-circle span {
+    font-family: var(--serif);
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.decoration-circle small {
+    margin-top: .8rem;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+}
+
+
+/* =========================================
+   SECTION GENERAL
+========================================= */
+
+section:not(.resume-hero):not(.resume-closing) {
+    padding: 5rem max(1.5rem, calc((100vw - var(--content)) / 2));
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 2.5rem;
+    color: var(--sage-dark);
+}
+
+.section-label span {
+    display: grid;
+    place-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    background: var(--sage);
+    font-size: .7rem;
+}
+
+.section-label p {
+    margin: 0;
+}
+
+.section-heading {
+    margin-bottom: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.7rem);
+    font-weight: 500;
+}
+
+.section-heading span {
+    color: var(--sage-dark);
+    font-family: var(--serif);
+    font-style: italic;
+}
+
+
+/* =========================================
+   PROFESSIONAL SUMMARY
+========================================= */
+
+.summary-section {
+    background: var(--cream);
+}
+
+.summary-content {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+.summary-content h2 {
+    max-width: 420px;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 500;
+}
+
+.summary-content h2 span {
+    display: block;
+    color: var(--sage-dark);
+    font-family: var(--serif);
+    font-style: italic;
+}
+
+.summary-content > p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills-section {
+    background: var(--white);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+}
+
+.skill-card {
+    padding: 1.8rem;
+    border: 1px solid var(--line);
+    background: #fffefa;
+
+    transition: transform .2s, box-shadow .2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+}
+
+.skill-icon {
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 1.3rem;
+    background: var(--sage);
+
+    color: var(--sage-dark);
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.skill-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.skill-card li {
+    padding-bottom: .4rem;
+}
+
+
+/* =========================================
+   EDUCATION TIMELINE
+========================================= */
+
+.education-section {
+    background: var(--cream);
+}
+
+.timeline {
+    position: relative;
+    margin-left: .6rem;
+    padding-left: 2rem;
+    border-left: 2px solid #d7dfd2;
+}
+
+.timeline-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 2rem;
+
+    padding-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    position: absolute;
+    top: 5px;
+    left: -2.52rem;
+
+    width: 14px;
+    height: 14px;
+
+    border: 3px solid var(--cream);
+    border-radius: 50%;
+    background: var(--sage-dark);
+
+    content: "";
+}
+
+.timeline-date {
+    color: var(--sage-dark);
+    line-height: 1.8;
+}
+
+.timeline-date span {
+    display: block;
+}
+
+.timeline-content h3 {
+    margin-bottom: .3rem;
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 500;
+}
+
+.location {
+    margin-bottom: .7rem;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.degree {
+    margin-bottom: .7rem;
+    color: var(--sage-dark);
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.timeline-content > p:not(.location):not(.degree) {
+    max-width: 650px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.achievement-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+
+/* =========================================
+   WORK EXPERIENCE
+========================================= */
+
+.experience-section {
+    background: var(--white);
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.experience-card {
+    padding: 2rem;
+
+    border: 1px solid var(--line);
+    background: #fffefa;
+}
+
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+}
+
+.experience-date {
+    margin-bottom: .7rem;
+    color: var(--sage-dark);
+}
+
+.experience-card h3,
+.volunteer-card h3 {
+    margin-bottom: .3rem;
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.job-type {
+    padding: .35rem .7rem;
+    background: var(--sage);
+    color: var(--sage-dark);
+
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.job-title {
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+    color: var(--sage-dark);
+    font-weight: 700;
+}
+
+.experience-card ul {
+    margin: 0;
+    padding-left: 1.3rem;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.experience-card li {
+    padding-bottom: .6rem;
+}
+
+.experience-card li:last-child {
+    padding-bottom: 0;
+}
+
+
+/* =========================================
+   VOLUNTEER EXPERIENCE
+========================================= */
+
+.volunteer-section {
+    background: var(--cream);
+}
+
+.volunteer-card {
+    padding: 2.5rem;
+    border: 1px solid var(--line);
+    background: var(--white);
+}
+
+.volunteer-date {
+    margin-bottom: 1rem;
+    color: var(--sage-dark);
+}
+
+.volunteer-card h3 {
+    max-width: 650px;
+}
+
+.volunteer-intro {
+    max-width: 700px;
+    margin-top: 1.5rem;
+    color: var(--muted);
+}
+
+.volunteer-responsibilities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+
+    margin-top: 2rem;
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--line);
+}
+
+.volunteer-responsibilities div {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.volunteer-responsibilities span {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    background: var(--sage);
+    color: var(--sage-dark);
+
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.volunteer-responsibilities p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+
+/* =========================================
+   CLOSING SECTION
+========================================= */
+
+.resume-closing {
+    padding: 5rem 1.5rem;
+    background: var(--sage-dark);
+    color: var(--white);
+    text-align: center;
+}
+
+.resume-closing .eyebrow {
+    color: var(--yellow);
+}
+
+.resume-closing h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+}
+
+.resume-closing h2 span {
+    display: block;
+    color: var(--yellow);
+    font-family: var(--serif);
+    font-style: italic;
+}
+
+.resume-closing > p:not(.eyebrow) {
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    color: #e4e9e1;
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding: .9rem 1.4rem;
+
+    background: var(--yellow);
+    color: var(--ink);
+
+    font-size: .9rem;
+    font-weight: 700;
+
+    transition: transform .2s, background .2s;
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+    background: #f5c65a;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    width: min(var(--content), calc(100% - 3rem));
+    margin: auto;
+    padding-block: 1.5rem;
+}
+
+.footer-inner p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.footer-inner > a:last-child {
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .resume-hero {
+        grid-template-columns: 1fr .7fr;
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skill-card:last-child {
+        grid-column: span 2;
+    }
+
+    .summary-content {
+        gap: 2rem;
+    }
+
+    .timeline-item {
+        grid-template-columns: 150px 1fr;
+        gap: 1.5rem;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .site-header {
+        padding: .8rem 1rem;
+    }
+
+    .site-header nav {
+        gap: .8rem;
+    }
+
+    .site-header nav a {
+        font-size: .7rem;
+    }
+
+    .resume-hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        width: calc(100% - 2rem);
+        padding-block: 3rem;
+    }
+
+    .resume-hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: .8rem;
+    }
+
+    .hero-decoration {
+        min-height: 230px;
+    }
+
+    .decoration-circle {
+        width: 165px;
+        height: 165px;
+    }
+
+    .decoration-circle span {
+        font-size: 4rem;
+    }
+
+    section:not(.resume-hero):not(.resume-closing) {
+        padding: 3.5rem 1rem;
+    }
+
+    .summary-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .summary-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card:last-child {
+        grid-column: auto;
+    }
+
+    .timeline {
+        margin-left: .4rem;
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: .7rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .timeline-item::before {
+        left: -2.05rem;
+    }
+
+    .timeline-date {
+        font-size: .68rem;
+    }
+
+    .experience-card {
+        padding: 1.4rem;
+    }
+
+    .experience-top {
+        flex-direction: column;
+    }
+
+    .experience-card h3,
+    .volunteer-card h3 {
+        font-size: 1.45rem;
+    }
+
+    .volunteer-card {
+        padding: 1.5rem;
+    }
+
+    .volunteer-responsibilities {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+    }
+
+    .resume-closing {
+        padding: 4rem 1rem;
+    }
+
+    .footer-inner {
+        width: calc(100% - 2rem);
+        flex-wrap: wrap;
+    }
+
+    .footer-inner p {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+}
+
+
+/* =========================================
+   PRINT / SAVE AS PDF
+========================================= */
+
+@media print {
+
+    @page {
+        margin: 0.6in;
+        size: auto;
+    }
+
+    body {
+        background: white;
+        font-size: 10pt;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .site-header,
+    .print-button,
+    .hero-decoration,
+    .resume-closing,
+    .site-footer {
+        display: none !important;
+    }
+
+    .resume-hero {
+        display: block;
+        width: 100%;
+        min-height: auto;
+        padding: 0 0 1rem;
+    }
+
+    .resume-hero h1 {
+        font-size: 30pt;
+    }
+
+    section:not(.resume-hero):not(.resume-closing) {
+        padding: 1.2rem 0;
+    }
+
+    .section-label {
+        margin-bottom: 1rem;
+    }
+
+    .section-heading {
+        margin-bottom: 1.2rem;
+        font-size: 23pt;
+    }
+
+    .summary-content {
+        gap: 1.5rem;
+    }
+
+    .summary-content h2 {
+        font-size: 20pt;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .5rem;
+    }
+
+    .skill-card {
+        padding: .8rem;
+        break-inside: avoid;
+    }
+
+    .skill-card:last-child {
+        grid-column: auto;
+    }
+
+    .skill-card h3 {
+        font-size: 12pt;
+    }
+
+    .skill-card ul {
+        font-size: 8pt;
+    }
+
+    .timeline-item {
+        grid-template-columns: 140px 1fr;
+        gap: 1rem;
+        padding-bottom: 1.3rem;
+        break-inside: avoid;
+    }
+
+    .experience-card,
+    .volunteer-card {
+        padding: 1rem;
+        margin-bottom: .7rem;
+        break-inside: avoid;
+    }
+
+    .experience-card ul,
+    .volunteer-intro,
+    .volunteer-responsibilities p {
+        font-size: 9pt;
+    }
+
+    .volunteer-responsibilities {
+        gap: .8rem;
+    }
+
+    a {
+        color: inherit;
+    }
+
+}
