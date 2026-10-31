@@ -1,0 +1,898 @@
+/* =========================================
+   EDAS REDESIGN CASE STUDY
+   Responsive Portfolio Stylesheet
+========================================= */
+
+:root {
+    --yellow: #ffd978;
+    --yellow-bright: #ffbd00;
+    --yellow-pale: #fff5d8;
+    --ink: #242424;
+    --muted: #656565;
+    --line: #dedbd2;
+    --white: #ffffff;
+    --cream: #fffaf0;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --content: 1120px;
+}
+
+
+/* =========================================
+   RESET AND GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--white);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 7vw, 6.2rem);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    padding-top: 0.65rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.section-wrap {
+    width: min(var(--content), calc(100% - 3rem));
+    margin-inline: auto;
+}
+
+.eyebrow,
+.small-label,
+.step-tag {
+    color: #765400;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.9rem max(1.5rem, calc((100vw - var(--content)) / 2));
+
+    border-bottom: 1px solid rgba(36, 36, 36, 0.08);
+
+    background: rgba(255, 255, 255, 0.93);
+    backdrop-filter: blur(14px);
+}
+
+.wordmark {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+}
+
+.wordmark span,
+h1 span {
+    color: #d59d00;
+}
+
+.back-link {
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link:hover,
+.text-link:hover,
+.site-footer a:hover {
+    color: #946900;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+
+    gap: clamp(2rem, 6vw, 5.5rem);
+
+    min-height: 620px;
+    padding-block: 5rem 6rem;
+}
+
+.hero-copy > .eyebrow {
+    margin-bottom: 1.4rem;
+}
+
+.hero h1 {
+    margin-bottom: 1.3rem;
+}
+
+.hero-lede {
+    max-width: 560px;
+    color: #555555;
+
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.55;
+}
+
+.hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    margin: 2.3rem 0;
+    padding-top: 1.4rem;
+
+    border-top: 1px solid var(--line);
+}
+
+.hero-meta div {
+    display: grid;
+    align-content: start;
+    gap: 0.35rem;
+}
+
+.hero-meta span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hero-meta strong {
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+
+    padding: 0.85rem 1.15rem;
+
+    border: 1px solid transparent;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: transform 0.2s, background 0.2s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-dark {
+    color: #242424;
+    background: var(--yellow);
+}
+
+.button-dark:hover {
+    background: #f5c54f;
+}
+
+
+/* =========================================
+   DECORATIVE EDAS CARD
+========================================= */
+
+.hero-art {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    min-height: 420px;
+}
+
+.edas-card {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: min(320px, 78%);
+    aspect-ratio: 0.78;
+
+    overflow: hidden;
+
+    background: #ffc928;
+    color: #3f3b2f;
+
+    box-shadow: 0 24px 65px rgba(103, 79, 13, 0.14);
+
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: 0.04em;
+}
+
+.edas-card::before {
+    position: absolute;
+    inset: 0;
+
+    border: 8px solid rgba(255, 255, 255, 0.14);
+
+    content: "";
+    pointer-events: none;
+}
+
+.edas-card i {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 42px;
+    height: 42px;
+
+    background: linear-gradient(135deg, #f7b800 50%, #d8a000 51%);
+
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.hero-orbit {
+    position: absolute;
+
+    display: block;
+
+    width: 82%;
+    aspect-ratio: 1;
+
+    border: 1px solid #eee2be;
+    border-radius: 50%;
+}
+
+.orbit-one {
+    transform: rotate(25deg) scaleX(0.78);
+}
+
+.orbit-two {
+    transform: rotate(-35deg) scaleX(0.78);
+}
+
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.intro-band {
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+    background: var(--yellow-pale);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 0.55fr 1.45fr;
+    gap: 3rem;
+}
+
+.intro-grid .eyebrow {
+    padding-top: 0.55rem;
+}
+
+.intro-grid h2 {
+    max-width: 780px;
+    margin-bottom: 1.4rem;
+}
+
+.intro-grid p:not(.eyebrow) {
+    max-width: 760px;
+    color: #515151;
+}
+
+
+/* =========================================
+   GENERAL CONTENT SECTIONS
+========================================= */
+
+.content-section {
+    padding-block: clamp(4rem, 8vw, 7.5rem);
+}
+
+.section-heading {
+    max-width: 800px;
+    margin-bottom: 2.7rem;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 1rem;
+}
+
+.section-heading h2 {
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+
+/* =========================================
+   GOALS
+========================================= */
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.goal-card {
+    min-height: 220px;
+    padding: 1.5rem;
+
+    border: 1px solid var(--line);
+    background: #ffffff;
+}
+
+.goal-number {
+    display: block;
+
+    margin-bottom: 2.4rem;
+
+    color: #9b7000;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.goal-card h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.08rem;
+}
+
+.goal-card p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   AUDIENCE
+========================================= */
+
+.audience-section {
+    padding-top: 0;
+}
+
+.audience-panel {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2.2rem;
+
+    background: var(--yellow-pale);
+}
+
+.audience-icon {
+    display: grid;
+    place-items: center;
+
+    width: 90px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #9b7000;
+
+    font-size: 2.8rem;
+}
+
+.audience-panel h3 {
+    margin-bottom: 0.7rem;
+}
+
+.audience-panel p {
+    max-width: 800px;
+    margin: 0;
+    color: #555555;
+}
+
+
+/* =========================================
+   RESEARCH / EVALUATION
+========================================= */
+
+.research-highlight {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    align-items: start;
+    gap: 2.5rem;
+
+    padding-block: 2.5rem;
+
+    border-top: 1px solid var(--line);
+}
+
+.research-highlight-copy .small-label {
+    display: block;
+    margin-bottom: 0.7rem;
+}
+
+.research-highlight-copy h3 {
+    margin-bottom: 1rem;
+
+    font-family: var(--serif);
+    font-size: 1.8rem;
+}
+
+.research-highlight-copy p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.screenshot-frame {
+    min-width: 0;
+    padding: 0.65rem;
+
+    border: 1px solid var(--line);
+    background: #ffffff;
+}
+
+.screenshot-frame img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: top;
+}
+
+
+/* =========================================
+   PROCESS
+========================================= */
+
+.process-section {
+    background: var(--cream);
+}
+
+.process-section .content-section {
+    padding-top: clamp(4rem, 8vw, 7.5rem);
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 3rem;
+
+    padding: 2.5rem 0 3.5rem;
+
+    border-top: 1px solid #e8dfc7;
+}
+
+.step-copy {
+    position: sticky;
+    top: 110px;
+
+    align-self: start;
+}
+
+.step-tag {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.step-copy h3 {
+    margin-bottom: 1rem;
+
+    font-family: var(--serif);
+    font-size: 2rem;
+}
+
+.step-copy p {
+    max-width: 330px;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   RESPONSIVE PROCESS IMAGE GALLERIES
+========================================= */
+
+.process-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.process-gallery figure {
+    min-width: 0;
+}
+
+.process-gallery img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: top;
+
+    border: 1px solid var(--line);
+    background: #ffffff;
+}
+
+
+/* =========================================
+   DESIGN OUTCOME
+========================================= */
+
+.result-note {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+
+    margin-top: 1rem;
+    padding: 2rem;
+
+    background: #302a1b;
+    color: #ffffff;
+}
+
+.result-mark {
+    display: grid;
+    place-items: center;
+
+    width: 54px;
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+
+    font-size: 1.5rem;
+}
+
+.result-note h3 {
+    margin-bottom: 0.6rem;
+}
+
+.result-note p {
+    max-width: 750px;
+    margin: 0;
+    color: #f0e8d5;
+}
+
+
+/* =========================================
+   REFLECTION
+========================================= */
+
+.reflection-card {
+    max-width: 900px;
+    margin-inline: auto;
+
+    padding: clamp(2rem, 6vw, 4.5rem);
+
+    background: var(--yellow-pale);
+}
+
+.reflection-card .eyebrow {
+    margin-bottom: 1.2rem;
+}
+
+.reflection-card h2 {
+    max-width: 650px;
+    margin-bottom: 1.4rem;
+}
+
+.reflection-card p:not(.eyebrow) {
+    max-width: 700px;
+    color: #515151;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 0.7rem;
+
+    color: #765400;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding-block: 1.5rem;
+}
+
+.footer-inner p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.footer-inner > a:last-child {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-mark {
+    flex: 0 0 auto;
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE STYLES
+========================================= */
+
+@media (max-width: 850px) {
+
+    .hero {
+        grid-template-columns: 1fr 0.75fr;
+        gap: 1.5rem;
+
+        min-height: auto;
+        padding-block: 4rem;
+    }
+
+    .hero-art {
+        min-height: 300px;
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .hero-meta div {
+        grid-template-columns: 90px 1fr;
+        align-items: baseline;
+    }
+
+    .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .research-highlight,
+    .process-step {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .research-highlight-copy {
+        max-width: 680px;
+    }
+
+    .step-copy {
+        position: static;
+    }
+
+    .step-copy p {
+        max-width: 680px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE STYLES
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .section-wrap {
+        width: calc(100% - 2rem);
+        max-width: var(--content);
+    }
+
+    .site-header {
+        padding-inline: 1rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-block: 3.5rem;
+    }
+
+    .hero-art {
+        grid-row: 1;
+        min-height: 300px;
+    }
+
+    .edas-card {
+        width: min(240px, 72%);
+        font-size: clamp(4rem, 16vw, 5.5rem);
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-meta div {
+        grid-template-columns: 82px 1fr;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-card {
+        min-height: 0;
+    }
+
+    .goal-number {
+        margin-bottom: 1.2rem;
+    }
+
+    .audience-panel {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.5rem;
+    }
+
+    .audience-icon {
+        width: 68px;
+        font-size: 2rem;
+    }
+
+    .research-highlight {
+        grid-template-columns: 1fr;
+    }
+
+    .process-gallery {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /*
+      Keep screenshots at their natural proportions on mobile.
+      No fixed heights or forced aspect ratios.
+    */
+
+    .screenshot-frame img,
+    .process-gallery img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+
+        aspect-ratio: auto;
+        object-fit: contain;
+        object-position: top;
+    }
+
+    .result-note {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+
+    .footer-inner p {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
